@@ -1,6 +1,6 @@
 // lesson2
 export {}; // for remove cannot redeclarate error
-let age: number = 50;
+let age: number = 51;
 let name: string = "Max";
 let toggle: boolean = true;
 let empty: null = null;
