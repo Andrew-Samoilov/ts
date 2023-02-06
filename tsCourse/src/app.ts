@@ -1,1 +1,2 @@
-console.log(` - * Trimming a string * -`);
+console.log(` - *  * -`);
+
