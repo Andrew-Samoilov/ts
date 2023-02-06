@@ -1,46 +1,18 @@
 console.log(` - *   * -`);
 
-function getPromise(): Promise<Array<string | number>> {
-  return new Promise((resolve) => {
-    resolve(["Text", 50]);
-  });
-}
+function trim(str: string, size: number): string {
+  console.log(str, str.length, size);
+  let res = str;
 
-getPromise().then((data) => {
-  console.log(data);
-});
-
-type AllType = {
-  name: string;
-  position: number;
-  color: string;
-  weight: number;
-};
-
-function compare(top: Pick <AllType, 'name'|'color'>, bottom: Pick<AllType, 'position'|'weight'>): AllType {
-  return {
-    name: top.name,
-    color: top.color,
-    position: bottom.position,
-    weight: bottom.weight,
-  };
-}
-
-function merge(objA: object, objB: object) {
-  return Object.assign(objA, objB);
-}
-
-
-class Component<T> {
-  constructor(public props: T) {}
-}
-
-interface IProps {
-  title: string;
-}
-
-class Page extends Component<IProps> {
-  pageInfo() {
-    console.log(this.props.title);
+  if (str.length > size||str.length>=3) {
+    res = str.slice(0, size - 3) + "...";
+    // console.log("*", str.slice(0, size - 3));
   }
+  return res;
 }
+
+console.log(trim("Creating kata is fun", 14), "Creating ka...");
+console.log(trim("He", 1), "H...");
+console.log(trim("Sw", 2), "Sw");
+console.log(trim("iFd", 3), "iFd");
+console.log(trim("iF", 3), "iF");
