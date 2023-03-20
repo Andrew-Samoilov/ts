@@ -1,4 +1,4 @@
-console.log(` - +* Sum of Intervals * -`);
+console.log(` - * Sum of Intervals * -`);
 
 function sumOfIntervals(intervals: [number, number][]) {
     let res = 0;
