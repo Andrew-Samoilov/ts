@@ -1,22 +1,22 @@
-console.log(` - * Thinkful - Logic Drills: Traffic light * -`);
+console.log(` - * String ends with? * -`);
 
-function updateLight(current: string): string {
-  switch (current) {
-    case "green":
-      return "yellow";
-      break;
-    case "yellow":
-      return "red";
-      break;
-    case "red":
-      return "green";
-      break;
-      default:
-          return '';
-      break;
-  }
+function solution(str: string, ending: string): boolean {
+    let result = false;
+    console.log(str, ending);
+    console.log(str.slice(-ending.length));
+    
+    if (ending === "") {
+        return true;
+    }
+    
+    if (str.slice(-ending.length) === ending) {
+        result = true;
+    }
+    
+    return result;
+
 }
 
-console.log(updateLight("green"), "yellow");
-console.log(updateLight("yellow"), "red");
-console.log(updateLight("red"), "green");
+console.log(solution("abcde", "cde"), true);
+console.log(solution("abcde", "abc"), false);
+console.log(solution("abc", ""), true);
