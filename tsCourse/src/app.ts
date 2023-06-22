@@ -1,22 +1,24 @@
-console.log(` - * String ends with? * -`);
+console.log(` - * Persistent Bugger * -`);
 
-function solution(str: string, ending: string): boolean {
-    let result = false;
-    console.log(str, ending);
-    console.log(str.slice(-ending.length));
-    
-    if (ending === "") {
-        return true;
-    }
-    
-    if (str.slice(-ending.length) === ending) {
-        result = true;
-    }
-    
-    return result;
+function persistence(num: number = 0): number {
+  let result = 0;
+  let tmpStr = num.toString();
 
+  while (tmpStr.length != 1) {
+    let tmp = 1;
+
+    for (let index = 0; index < tmpStr.length; index++) {
+      tmp = tmp * Number(tmpStr[index]);
+    }
+
+    result++;
+    tmpStr = tmp.toString();
+  }
+
+  return result;
 }
 
-console.log(solution("abcde", "cde"), true);
-console.log(solution("abcde", "abc"), false);
-console.log(solution("abc", ""), true);
+console.log(persistence(39), 3);
+console.log(persistence(4), 0);
+console.log(persistence(25), 2);
+console.log(persistence(999), 4);
