@@ -11,8 +11,8 @@ function updateLight(current: string): string {
     case "red":
       return "green";
       break;
-      default:
-          return '';
+    default:
+      return "";
       break;
   }
 }
