@@ -1,0 +1,5 @@
+# For view this:
+
+1. <code>npm start</code> to run
+2. open <./index.html> with Live Server
+3. open developer tool console (in Chrome  <kbd>ctrl</kbd> + <kbd>Shift</kbd> + <kbd>i</kbd>)
