@@ -1,6 +1,6 @@
 {
   "name": "tsCourse",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "typescript": "^5.3.2"
   }
 }
