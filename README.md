@@ -5,7 +5,7 @@
 
 npm start
 
-tsx -w
+tsc -w
 
 </code> 
 to run
