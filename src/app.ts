@@ -139,6 +139,5 @@ function trafficLights(road: string, n: number): string[] {
     return rezult;
 }
 
-
-let test = trafficLights("CCC.G...R...", 16);
-console.log(test);
+// let test = trafficLights("CCC.G...R...", 16);
+// console.log(test);
