@@ -1,19 +1,22 @@
-console.log(` - * 5 kuy * Traffic Lights - multiple cars * -`);
+console.log(` - ** 5 kuy * Traffic Lights - multiple cars * -`);
 
 function trafficLights(road: string, n: number): string[] {
     let carCorrdinate: number[] = [];
     let roadState = road.split('');
     let rezult = [road];
 
-    //initialized cars array
-    for (let index = 0; index < road.length; index++) {
-        if (road[index] === 'C') {
-            carCorrdinate.push(index);
-            roadState[index] = '.';
+    function roadStateInitialization(): void {
+        for (let index = 0; index < road.length; index++) {
+            if (road[index] === 'C') {
+                carCorrdinate.push(index);
+                roadState[index] = '.';
+            }
         }
+        console.log(...carCorrdinate, 'car coordinate');
+        console.log(roadState.join(''), `road state`);
     }
-    console.log(...carCorrdinate, `car coordinate`);
-    console.log(roadState.join(''), `road state`);
+
+    roadStateInitialization();
 
     function drawRoad(state: string[]) {
         let res = [...state];
@@ -26,13 +29,12 @@ function trafficLights(road: string, n: number): string[] {
             arr[index] = item.slice(0, 1);
         });
 
-        // console.log(carCorrdinate);
+        // console.log('draw road',...carCorrdinate);
 
         return res.join('');
     }
 
-    for (let i = 0; i < n; i++) {
-
+    function traficLightsTicker(): void {
         for (let index = 0; index < roadState.length; index++) {
             switch (roadState[index]) {
                 case 'R':
@@ -99,39 +101,43 @@ function trafficLights(road: string, n: number): string[] {
                     break;
             }
         }
+    }
 
-        // console.log(`car coord ${carCorrdinate},road length ${road.length}`);
+    for (let i = 0; i < n; i++) {
+        traficLightsTicker();
 
         for (let index = carCorrdinate.length; index > -1; index--) {
+            // console.log(`car coord ${carCorrdinate}, road length ${road.length}`);
             if ((carCorrdinate[index] + 1) >= road.length) {
-                carCorrdinate[index] = -2;
-            }
-
-            switch (roadState[carCorrdinate[index] + 1]) {
-                case 'G':
-                case '.':
-                    if (carCorrdinate.indexOf(index + 1) === -1) {
+                carCorrdinate[index] = -2; //car disappears
+            } else {
+                console.log(`roadState[carCorrdinate[${index}]+1]`, carCorrdinate[index] + 1, roadState[carCorrdinate[index] + 1]);
+                switch (roadState[carCorrdinate[index] + 1]) {
+                    case '.':
+                    case 'G':
+                    case 'G1':
+                    case 'G2':
+                    case 'G3':
+                    case 'G4':
+                        // console.log(i, 'i', ...carCorrdinate);
+                        // console.log(index, carCorrdinate.indexOf(index + 1));
+                        // if (carCorrdinate.indexOf(index + 1) === -1) {
+                        // console.log(index, carCorrdinate.indexOf(index + 1));
                         carCorrdinate[index]++;
-                    }
-                    break;
+                        console.log(`carCorrdinate[${index}] ${carCorrdinate[index]}`);
+                        // }
+                        break;
 
-                case 'G1':
-                case 'G2':
-                case 'G3':
-                case 'G4':
-                    console.log(`all car coord ${carCorrdinate}; +2 = ${carCorrdinate.indexOf(index + 2)}`);
-                    if (carCorrdinate.indexOf(index + 2) === -1) {
-                        carCorrdinate[index]++;
-                    }
-
-                    break;
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
+            // console.log(index,...carCorrdinate);
+            // console.log(index, roadState.join(''));
         }
 
         // console.log(roadState.join(''), 'state');
-        // console.log(i, carCorrdinate, 'car coordinate');
+        // console.log( ...carCorrdinate, 'car coordinate');
 
         rezult.push(drawRoad(roadState));
     }
@@ -140,4 +146,5 @@ function trafficLights(road: string, n: number): string[] {
 }
 
 // let test = trafficLights("CCC.G...R...", 16);
-// console.log(test);
+let test = trafficLights("CCR...G...", 7);
+console.log(test);
