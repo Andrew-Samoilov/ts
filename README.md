@@ -3,7 +3,7 @@
 1. 
 <code>
 
-npm start
+<!-- npm start -->
 
 tsc -w
 

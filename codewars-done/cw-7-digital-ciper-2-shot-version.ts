@@ -1,4 +1,4 @@
-console.log(` - * 7 kuy * Digital Cypher, 2 * `);
+console.log(` - * 7 kuy * Digital Cypher, 2 * -`);
 
 function decode(code: number[], n: number): string {
     const alphabet: string = ' abcdefghijklmnopqrstuvwxyz';
