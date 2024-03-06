@@ -1,1 +1,1 @@
-console.log(` - * kuy *  * -`);
+console.log(` - * kuy * 77 * -`);
