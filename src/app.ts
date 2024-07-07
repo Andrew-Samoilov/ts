@@ -1,19 +1,15 @@
-console.log(` - *** 8 kuy * Short Long Short * `);
+console.log(` - * 7 kuy * How many are smaller than me? * `);
 
-function shortLongShort(a: string, b: string) {
-    // let res = '';
-
-    // if (a.length > b.length) {
-    //     res = b + a + b 
-    // } else {
-    //     res = a + b + a; 
-    // }
-    // return res;
-    return a.length > b.length ? b + a + b : a + b + a;
-
+function smaller(nums: number[]): number[] {
+    let res = [];
+    for (let index = 0; index < nums.length; index++) {
+        let counter = 0;
+        for (let index2 = index + 1; index2 < nums.length; index2++) {         
+            if (nums[index] > nums[index2]) counter++;       
+        }
+        res.push(counter);
+    }
+    return res;
 }
 
-console.log(shortLongShort('45', '1'), '1451');
-console.log(shortLongShort('13', '200'), '1320013');
-console.log(shortLongShort('Soon', 'Me'), 'MeSoonMe');
-console.log(shortLongShort('U', 'False'), 'UFalseU');
+console.log(smaller([5, 4, 7, 9, 2, 4, 4, 5, 6]), [4, 1, 5, 5, 0, 0, 0, 0, 0]);
