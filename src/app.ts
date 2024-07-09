@@ -1,4 +1,4 @@
-console.log(` - * 4 kuy * Catching Car Mileage Numbers * `);
+console.log(` - * * 4 kuy * Catching Car Mileage Numbers * `);
 
 function isInteresting(n: number, awesomePhrases: number[]): number {
     console.log(`n`, n, `awesomePhrases`, ...awesomePhrases);
@@ -28,20 +28,12 @@ function isInteresting(n: number, awesomePhrases: number[]): number {
         let rightHalfStr = str.slice(-1 * str.length / 2);
         let reverseRightHalfStr = rightHalfStr.split('').reverse().join('');
         // console.log(`1/2`, leftHalfStr, rightHalfStr, reverseRightHalfStr);
-        if (str.length % 2 === 0) {
+
             if (leftHalfStr === reverseRightHalfStr) {
                 res2 = 2;
                 return res2;
             }
-        } else {
-            // let middleStr = str.slice(str.length / 2, -1 * str.length / 2);
-            // console.log(`middle part`, middleStr,leftHalfStr,reverseRightHalfStr);
-            // console.log(`middle part > `, Number(leftHalfStr.slice(-1)));
-            if (leftHalfStr === reverseRightHalfStr) {
-                res2 = 2;
-                return res2;
-            }
-        }
+
 
 
         //incementing 123
@@ -63,7 +55,6 @@ function isInteresting(n: number, awesomePhrases: number[]): number {
             } else if (digits[index] === 0 && digits[index + 1] === 9) {
                 tmp = 0;
                 res2 = 2;
-
             } else {
                 // tmp = 0;
                 // console.log(`decrementing 0`);
